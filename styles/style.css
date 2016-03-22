@@ -1,106 +1,119 @@
 /* ----------------- Global Styles ----------------- */
 
 * {
-	box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 
 /* ----------------- Font Styles ----------------- */
-@font-face{
+
+
+/* @font-face{
     font-family: flaticon;
     src: url(data:font/ttf;base64,THESTRING… ) format('truetype');
-}
+} */
 
 
 /* ----------------- Start Screen ----------------- */
 
 .startContainer > * {
-	text-align:center;
+    text-align: center;
 }
 
 body {
-	background: linear-gradient(to right, #2B120A , #001839);;
-	/* background-color: #070202; */
+    background: linear-gradient(to right, #2B120A, #001839);
+    ;
 }
 
 p {
-	font-size:48px;
-	color: red;
-	font-weight:bolder;
-	text-align:center;
+    font-size: 48px;
+    color: red;
+    font-weight: bolder;
+    text-align: center;
 }
 
 .gameOver1 {
-	display:none;
-	height: 100vh;
-	width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* transition:2s all ease; */
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .gameOver2 {
-	display:none;
-	height:100vh;
-	width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gameOver3 {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 img {
-	height:50vh;
-	width:49.5%;
+    height: 50vh;
+    width: 49.5%;
 }
 
-.buttonContainer {
-
-}
+.buttonContainer {}
 
 button {
-	display:inline-block;
-	background-color:red;
-	color:black;
-	width:100px;
-	height:100px;
-	border-radius:100%;
-	/* margin-left:45%; */
-	margin-bottom:20px;
-	padding:10px 0 10px 0;
-	font: 14px bold italic;
+    display: inline-block;
+    background-color: red;
+    color: black;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    /* margin-left:45%; */
+    margin-bottom: 20px;
+    padding: 10px 0 10px 0;
+    font: 14px bold;
+}
+
+span {
+    position: absolute;
+    margin-top: 10px;
+    font-size: 34px;
+    font-weight: bolder;
 }
 
 .lifeContainer {
-	display:inline-block;
-	/* float:bottom; */
-	width:49%;
-	height:100px;
-	border: 2px solid tomato;
-	border-radius: 25px;
-
+    display: inline-block;
+    /* float:bottom; */
+    width: 49%;
+    height: 100px;
+    border: 2px solid tomato;
+    border-radius: 25px;
+    text-align: center
 }
 
 .axeLifeBar {
-	/* border: 1px solid cyan; */
-	height:100%;
-	background: linear-gradient(to right, red , yellow);;
-
-	width:100%;
-	text-align:center;
-	font-size:50px;
-	transition: 1s all ease;
-	border-radius:25px;
+    height: 100%;
+    background: linear-gradient(to right, red, yellow);
+    ;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    transition: 1s all ease;
+    border-radius: 25px;
 }
 
 .enemyLifeBar {
-	/* border: 1px solid cyan; */
-	height:100%;
-	background: linear-gradient(to right, purple , blue);;
-
-	width:100%;
-	text-align:center;
-	font-size:50px;
-	transition: 1s all ease;
-	border-radius:25px;
+    height: 100%;
+    background: linear-gradient(to right, purple, blue);
+    ;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    transition: 1s all ease;
+    border-radius: 25px;
 }
