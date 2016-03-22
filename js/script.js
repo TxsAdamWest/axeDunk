@@ -29,7 +29,7 @@ Array.prototype.choice = function() {
         var randomIndex = Math.floor(Math.random() * this.length)
         return this[randomIndex]
     }
-    // ----------------------------------------- //
+// ----------------------------------------- //
 
 // ------------ Button Scripts ------------- //
 
@@ -51,10 +51,8 @@ $(killButton).on('click', function() {
     enemyLifeBarPercentWidth -= (Math.random() * 40)
     enemyLifeBar.style.width = enemyLifeBarPercentWidth + '%'
 
-    $(".startScreen1").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); // Blinking effect when hit.
-    // $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
-
-    // console.log(lifeBar.offsetWidth)
+    $(".startScreen1").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); // Blinking Axe effect when hit.
+    // $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200); // Blinking Sven effect when hit.
 
     if (axeLifeBarPercentWidth < 0) {
         var audioElId = victoryIds[1] // This will only cycle through starting on the 1st index.
