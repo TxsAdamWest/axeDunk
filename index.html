@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <title></title>
+    <title>Axe Dunk</title>
 </head>
 
 <body>
@@ -12,13 +12,23 @@
     <div class="startContainer">
         <div class="startpage">
             <img class="startScreen1" src="images/axeBattlePose.gif">
-            <p> Axe is READY! </p>
+            <img class='gameOver1' src="https://i.imgflip.com/118cz1.jpg">
+            <img class='gameOver2' src="https://i.imgflip.com/118dfg.jpg">
+            <img class="startScreen2" src="images/svenBattlePose2.gif">
+            <p class="mainText"> WHO WILL BE VICTORIOUS? </p>
         </div>
-        <button type="button" id="killButton"> EXECUTE!</button>
+
+        <div class="buttonContainer">
+            <button type="button" id="killButton"> FIGHT!</button>
+            <button type="button" id="winButton"> AUTO-WIN! </button> 
+        </div>
     </div>
 
     <div class="lifeContainer"> 
-        <div class="lifeBar"></div>
+        <div class="axeLifeBar"></div>
+    </div>
+    <div class="lifeContainer"> 
+        <div class="enemyLifeBar"></div>
     </div>
 
 <!-- ---------------------------- Mp3 Files -------------------------- -->
@@ -48,6 +58,10 @@
 
     <audio id='holyShit'>
             <source src="sounds/HolyShit.mp3">
+    </audio>
+
+    <audio id='axeDeath'>
+        <source src="sounds/axeDeath.mp3">
     </audio>
     
     <!-- <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>

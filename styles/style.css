@@ -1,7 +1,6 @@
 /* ----------------- Global Styles ----------------- */
 
 * {
-	/* display:inline-block; */
 	box-sizing:border-box;
 }
 
@@ -14,13 +13,14 @@
 
 
 /* ----------------- Start Screen ----------------- */
-.startContainer {
-	/* margin-left:50%; */
-	/* margin-top:10%; */
-}
 
 .startContainer > * {
 	text-align:center;
+}
+
+body {
+	background: linear-gradient(to right, #2B120A , #001839);;
+	/* background-color: #070202; */
 }
 
 p {
@@ -30,31 +30,73 @@ p {
 	text-align:center;
 }
 
-#killButton {
+.gameOver1 {
+	display:none;
+	height: 100vh;
+	width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* transition:2s all ease; */
+}
+
+.gameOver2 {
+	display:none;
+	height:100vh;
+	width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+img {
+	height:50vh;
+	width:49.5%;
+}
+
+.buttonContainer {
+
+}
+
+button {
+	display:inline-block;
 	background-color:red;
 	color:black;
-	width:10%;
+	width:100px;
 	height:100px;
 	border-radius:100%;
-	margin-left:45%;
+	/* margin-left:45%; */
 	margin-bottom:20px;
 	padding:10px 0 10px 0;
+	font: 14px bold italic;
 }
 
 .lifeContainer {
-	display:block;
+	display:inline-block;
 	/* float:bottom; */
-	width:100%;
+	width:49%;
 	height:100px;
 	border: 2px solid tomato;
 	border-radius: 25px;
 
 }
 
-.lifeBar {
+.axeLifeBar {
 	/* border: 1px solid cyan; */
 	height:100%;
 	background: linear-gradient(to right, red , yellow);;
+
+	width:100%;
+	text-align:center;
+	font-size:50px;
+	transition: 1s all ease;
+	border-radius:25px;
+}
+
+.enemyLifeBar {
+	/* border: 1px solid cyan; */
+	height:100%;
+	background: linear-gradient(to right, purple , blue);;
 
 	width:100%;
 	text-align:center;
