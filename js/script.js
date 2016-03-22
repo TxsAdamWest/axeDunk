@@ -34,7 +34,7 @@ Array.prototype.choice = function() {
 // ------------ Button Scripts ------------- //
 
 
-var audioIds = ["#axeCullingBlade", "#firstBlood", "#svenWarcry1", "#svenWarcry2", "#svenStunned", "#axeWarcry1", "#axeWarcry2", "#axeDeath"]
+var audioIds = ["#axeCullingBlade", "#firstBlood", "#svenWarcry1", "#svenWarcry2", "#svenStunned", "#axeWarcry1", "#axeWarcry2", "#axeDeath","#svenDeath"]
 var victoryIds = ["#axeWins", "#enemyWins"]
 var idCounter = 0
 
@@ -47,27 +47,33 @@ $(killButton).on('click', function() {
 
     axeLifeBarPercentWidth -= (Math.random() * 40)
     axeLifeBar.style.width = axeLifeBarPercentWidth + '%'
+    console.log("axe's hp remaining: "+axeLifeBarPercentWidth)
 
     enemyLifeBarPercentWidth -= (Math.random() * 40)
     enemyLifeBar.style.width = enemyLifeBarPercentWidth + '%'
+    console.log("sven's hp remaining: "+enemyLifeBarPercentWidth)
 
     $(".startScreen1").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); // Blinking Axe effect when hit.
     // $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200); // Blinking Sven effect when hit.
 
-    if (axeLifeBarPercentWidth < 0) {
-        var audioElId = victoryIds[1] // This will only cycle through starting on the 1st index.
-        var audioEl = document.querySelector(audioElId)
-        lifeContainer.style.display = 'none'
-        gameOver2.style.display = 'block'
-    }
+    // if(axeLifeBarPercentWidth < 0 || enemyLifeBarPercentWidth < 0) {
 
-    if (enemyLifeBarPercentWidth < 0) {
-        var audioElId = victoryIds[0] // This will only cycle through starting on the 1st index.
-        var audioEl = document.querySelector(audioElId)
-        lifeContainer.style.display = 'none'
-        gameOver1.style.display = 'block'
-    }
+	    if (axeLifeBarPercentWidth < 0) setTimeout(function(){
+	        var audioElId = victoryIds[1] // This will only cycle through starting on the 1st index.
+	        var audioEl = document.querySelector(audioElId)
+	        lifeContainer.style.display = 'none'
+	        gameOver2.style.display = 'block'
+	        return audioEl.play()
+	    },2000)
 
+	    if (enemyLifeBarPercentWidth < 0) setTimeout(function(){
+	        var audioElId = victoryIds[0] // This will only cycle through starting on the 1st index.
+	        var audioEl = document.querySelector(audioElId)
+	        lifeContainer.style.display = 'none'
+	        gameOver1.style.display = 'block'
+	        return audioEl.play()
+	    },2000)
+// }
     audioEl.play()
 })
 
