@@ -20,9 +20,15 @@
     text-align: center;
 }
 
+.startContainer {
+    display:inline-block;
+    width:75%;
+}
+
+
 body {
     background: linear-gradient(to right, #2B120A, #001839);
-    ;
+    
 }
 
 p {
@@ -62,6 +68,8 @@ p {
 img {
     height: 50vh;
     width: 49.5%;
+    border: 5px grey solid;
+    border-radius:25px;
 }
 
 .buttonContainer {}
@@ -99,7 +107,6 @@ span {
 .axeLifeBar {
     height: 100%;
     background: linear-gradient(to right, red, yellow);
-    ;
     width: 100%;
     text-align: center;
     font-size: 50px;
@@ -110,10 +117,28 @@ span {
 .enemyLifeBar {
     height: 100%;
     background: linear-gradient(to right, purple, blue);
-    ;
     width: 100%;
     text-align: center;
     font-size: 50px;
     transition: 1s all ease;
     border-radius: 25px;
+}
+
+/* Combat Log */
+
+.combatLog {
+   
+    display: inline-block;
+    vertical-align:top;
+    background-color: mediumaquamarine;
+    background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2015/02/dota_2_logo_wallpaper_download.jpg");
+    border: 5px solid slategrey;
+    width: 24%;
+    height: 99vh;
+    border-radius: 25px;
+}
+
+.combatHeader {
+
+    border-bottom: 5px solid slategray;
 }

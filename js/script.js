@@ -5,6 +5,7 @@ document.querySelector('#winButton')
 
 // ------------ Screens  ------------- //
 
+var everything = document.querySelector('*')
 document.querySelector('.startScreen1')
 
 var gameOver1 = document.querySelector('.gameOver1')
@@ -21,6 +22,10 @@ var axeLifeBarPercentWidth = 100
 var enemyLifeBar = document.querySelector('.enemyLifeBar')
 var enemyLifeBarPercentWidth = 100
 
+// ------------ Combat Log Selectors ------ //
+
+var combatLog = document.querySelector('.combatLog')
+
 
 // ------------ Sound Scripts ------------- //
 
@@ -36,22 +41,40 @@ Array.prototype.choice = function() {
 
 var audioIds = ["#axeCullingBlade", "#firstBlood", "#svenWarcry1", "#svenWarcry2", "#svenStunned", "#axeWarcry1", "#axeWarcry2", "#axeDeath","#svenDeath"]
 var victoryIds = ["#axeWins", "#enemyWins"]
+var combatAudio = ["#axeCullingBlade", "#axeWarcry2","#svenWarcry2"]
 var idCounter = 0
 
 $(killButton).on('click', function() {
 
     // var audioElId = audioIds.choice() // This will cycle through all sounds in audioIds
-    var audioElId = audioIds[idCounter] // This will only cycle through starting on the 1st index.
+    var audioElId = combatAudio[idCounter] // This will only cycle through starting on the 1st index.
     var audioEl = document.querySelector(audioElId)
-    idCounter += 1
+    
+    if(idCounter < 2 ){
+        console.log(idCounter)
+        idCounter += 1
+    }
+    else {
+        idCounter = 0
+    }
+
 
     axeLifeBarPercentWidth -= (Math.random() * 40)
+
+    // var axeDmgCounter = (Math.random().then * 40)
+
+    // var combatLogEntry = combatLog.createElement('p')
+
+    // combatLogEntry.innerHTML += "Axe deals " + axeDmgCounter + "!"
+
+
+
     axeLifeBar.style.width = axeLifeBarPercentWidth + '%'
-    console.log("axe's hp remaining: "+axeLifeBarPercentWidth)
+    console.log("axe's hp remaining: "+ axeLifeBarPercentWidth)
 
     enemyLifeBarPercentWidth -= (Math.random() * 40)
     enemyLifeBar.style.width = enemyLifeBarPercentWidth + '%'
-    console.log("sven's hp remaining: "+enemyLifeBarPercentWidth)
+    console.log("sven's hp remaining: "+ enemyLifeBarPercentWidth)
 
     $(".startScreen1").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); // Blinking Axe effect when hit.
     // $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200); // Blinking Sven effect when hit.
@@ -82,7 +105,7 @@ $(winButton).on('click', function() {
     var audioElId = audioIds[7] // This will only cycle through starting on the 1st index.
     var audioEl = document.querySelector(audioElId)
 
-    lifeContainer.style.display = 'none'
+    everything.style.display = 'none'
     gameOver3.style.display = 'block'
 
     audioEl.play()
