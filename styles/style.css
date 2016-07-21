@@ -92,6 +92,7 @@ span {
     margin-top: 10px;
     font-size: 34px;
     font-weight: bolder;
+    /* z-index:1; */
 }
 
 .lifeContainer {
@@ -101,7 +102,7 @@ span {
     height: 100px;
     border: 2px solid tomato;
     border-radius: 25px;
-    text-align: center
+    text-align: center;
 }
 
 .axeLifeBar {
@@ -130,15 +131,20 @@ span {
    
     display: inline-block;
     vertical-align:top;
-    background-color: mediumaquamarine;
+    background-color: #070707;
     background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2015/02/dota_2_logo_wallpaper_download.jpg");
     border: 5px solid slategrey;
     width: 24%;
     height: 99vh;
     border-radius: 25px;
+    overflow: scroll;
 }
 
 .combatHeader {
 
     border-bottom: 5px solid slategray;
+}
+
+.combatInfo {
+    font-size: 24px;
 }
