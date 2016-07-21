@@ -92,6 +92,7 @@ span {
     margin-top: 10px;
     font-size: 34px;
     font-weight: bolder;
+    /* z-index:1; */
 }
 
 .lifeContainer {

@@ -5,7 +5,7 @@ document.querySelector('#winButton')
 
 // ------------ Screens  ------------- //
 
-var everything = document.querySelector('*')
+var everything = document.querySelector('body')
 document.querySelector('.startScreen1')
 
 var gameOver1 = document.querySelector('.gameOver1')
@@ -14,7 +14,7 @@ var gameOver3 = document.querySelector('.gameOver3')
 
 // ------------ Life Bars ------------- //
 
-var lifeContainer = document.querySelector('span')
+var lifeContainer = document.getElementsByTagName('span')
 
 var axeLifeBar = document.querySelector('.axeLifeBar')
 var axeLifeBarPercentWidth = 100
@@ -84,7 +84,8 @@ $(killButton).on('click', function() {
 	    if (axeLifeBarPercentWidth < 0) setTimeout(function(){
 	        var audioElId = victoryIds[1] // This will only cycle through starting on the 1st index.
 	        var audioEl = document.querySelector(audioElId)
-	        lifeContainer.style.display = 'none'
+	        lifeContainer[0].style.display = 'none'
+            lifeContainer[1].style.display = 'none'
 	        gameOver2.style.display = 'block'
 	        return audioEl.play()
 	    },2000)
@@ -92,7 +93,8 @@ $(killButton).on('click', function() {
 	    if (enemyLifeBarPercentWidth < 0) setTimeout(function(){
 	        var audioElId = victoryIds[0] // This will only cycle through starting on the 1st index.
 	        var audioEl = document.querySelector(audioElId)
-	        lifeContainer.style.display = 'none'
+	        lifeContainer[0].style.display = 'none'
+            lifeContainer[1].style.display = 'none'
 	        gameOver1.style.display = 'block'
 	        return audioEl.play()
 	    },2000)
@@ -105,8 +107,13 @@ $(winButton).on('click', function() {
     var audioElId = audioIds[7] // This will only cycle through starting on the 1st index.
     var audioEl = document.querySelector(audioElId)
 
-    everything.style.display = 'none'
-    gameOver3.style.display = 'block'
+    var lifeContainer = document.getElementsByTagName('span')
+    console.log(document.getElementsByTagName('span'))
+
+
+    lifeContainer[0].style.display = 'none'
+    lifeContainer[1].style.display = 'none'
+    gameOver3.style.display= 'block'
 
     audioEl.play()
 })
