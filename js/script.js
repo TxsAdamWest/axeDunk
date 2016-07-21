@@ -58,28 +58,37 @@ $(killButton).on('click', function() {
         idCounter = 0
     }
 
+    var axeDmgCounter = (Math.random() * 40)
 
-    axeLifeBarPercentWidth -= (Math.random() * 40)
 
-    // var axeDmgCounter = (Math.random().then * 40)
+    axeLifeBarPercentWidth -= axeDmgCounter
+    console.log(axeDmgCounter)
 
     // var combatLogEntry = combatLog.createElement('p')
 
-    // combatLogEntry.innerHTML += "Axe deals " + axeDmgCounter + "!"
+    combatLog.innerHTML += "<p class='combatInfo'>Sven deals " + axeDmgCounter + "!</p>"
 
 
 
     axeLifeBar.style.width = axeLifeBarPercentWidth + '%'
     console.log("axe's hp remaining: "+ axeLifeBarPercentWidth)
 
-    enemyLifeBarPercentWidth -= (Math.random() * 40)
+    
+    var enemyDmgCounter = (Math.random() * 40)
+    enemyLifeBarPercentWidth -= enemyDmgCounter
+
+    combatLog.innerHTML += "<p class='combatInfo'>Axe deals " + enemyDmgCounter + "!</p>"
+
+
     enemyLifeBar.style.width = enemyLifeBarPercentWidth + '%'
     console.log("sven's hp remaining: "+ enemyLifeBarPercentWidth)
 
+    if(axeLifeBarPercentWidth < enemyLifeBarPercentWidth){
     $(".startScreen1").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100); // Blinking Axe effect when hit.
-    // $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200); // Blinking Sven effect when hit.
-
-    // if(axeLifeBarPercentWidth < 0 || enemyLifeBarPercentWidth < 0) {
+    }
+    if(enemyLifeBarPercentWidth < axeLifeBarPercentWidth){
+    $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200); // Blinking Sven effect when hit.
+    }
 
 	    if (axeLifeBarPercentWidth < 0) setTimeout(function(){
 	        var audioElId = victoryIds[1] // This will only cycle through starting on the 1st index.
