@@ -8,11 +8,6 @@
 /* ----------------- Font Styles ----------------- */
 
 
-/* @font-face{
-    font-family: flaticon;
-    src: url(data:font/ttf;base64,THESTRING… ) format('truetype');
-} */
-
 
 /* ----------------- Start Screen ----------------- */
 
@@ -33,7 +28,7 @@ body {
 
 p {
     font-size: 48px;
-    color: red;
+    color: slategray;
     font-weight: bolder;
     text-align: center;
 }
@@ -146,5 +141,26 @@ span {
 }
 
 .combatInfo {
-    font-size: 24px;
+    font-size: 20px;
 }
+
+.combatInfo:nth-child(even)  {
+    color:blue;
+    text-align:left;
+    padding: 0 20%;
+}
+
+.combatInfo:nth-child(odd) {
+    color: red;
+    text-align:right;
+    padding: 0 20%;
+
+}
+
+/* .axeCombatInfo {
+    color: red;
+}
+
+.svenCombatInfo {
+    color: blue;
+} */

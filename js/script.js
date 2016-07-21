@@ -6,7 +6,7 @@ document.querySelector('#winButton')
 // ------------ Screens  ------------- //
 
 var everything = document.querySelector('body')
-document.querySelector('.startScreen1')
+var axePortrait = document.querySelector('.startScreen1')
 
 var gameOver1 = document.querySelector('.gameOver1')
 var gameOver2 = document.querySelector('.gameOver2')
@@ -41,24 +41,19 @@ Array.prototype.choice = function() {
 
 var audioIds = ["#axeCullingBlade", "#firstBlood", "#svenWarcry1", "#svenWarcry2", "#svenStunned", "#axeWarcry1", "#axeWarcry2", "#axeDeath","#svenDeath"]
 var victoryIds = ["#axeWins", "#enemyWins"]
-var combatAudio = ["#axeCullingBlade", "#axeWarcry2","#svenWarcry2"]
-var idCounter = 0
-
+var combatAudio =  ["#axeCullingBlade", "#svenWarcry1", "#svenWarcry2", "#svenStunned", "#axeWarcry1", "#axeWarcry2"]
 $(killButton).on('click', function() {
+    var idCounter = Math.round(Math.random()* 5)
+    console.log(idCounter, "<<< audio index")
 
-    // var audioElId = audioIds.choice() // This will cycle through all sounds in audioIds
     var audioElId = combatAudio[idCounter] // This will only cycle through starting on the 1st index.
     var audioEl = document.querySelector(audioElId)
     
-    if(idCounter < 2 ){
-        console.log(idCounter)
-        idCounter += 1
-    }
-    else {
-        idCounter = 0
-    }
+     var clashAudio = document.querySelector(combatAudio[0])
 
-    var axeDmgCounter = (Math.random() * 40)
+    clashAudio.play()
+
+    var axeDmgCounter = Math.round((Math.random() * 40))
 
 
     axeLifeBarPercentWidth -= axeDmgCounter
@@ -74,7 +69,7 @@ $(killButton).on('click', function() {
     console.log("axe's hp remaining: "+ axeLifeBarPercentWidth)
 
     
-    var enemyDmgCounter = (Math.random() * 40)
+    var enemyDmgCounter = Math.round((Math.random() * 40))
     enemyLifeBarPercentWidth -= enemyDmgCounter
 
     combatLog.innerHTML += "<p class='combatInfo'>Axe deals " + enemyDmgCounter + "!</p>"
@@ -90,25 +85,38 @@ $(killButton).on('click', function() {
     $(".startScreen2").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200); // Blinking Sven effect when hit.
     }
 
-	    if (axeLifeBarPercentWidth < 0) setTimeout(function(){
+        audioEl.play()
+
+	    if (axeLifeBarPercentWidth <= 0) {
+            combatLog.innerHTML += "<p class='axeCombatInfo'>Axe is defeated!</p>"
+            axePortrait.src = 'images/axeInjured.gif'
+
+            setTimeout(function(){
 	        var audioElId = victoryIds[1] // This will only cycle through starting on the 1st index.
 	        var audioEl = document.querySelector(audioElId)
 	        lifeContainer[0].style.display = 'none'
             lifeContainer[1].style.display = 'none'
 	        gameOver2.style.display = 'block'
-	        return audioEl.play()
+	        audioEl.play()
 	    },2000)
+            return
+    }
 
-	    if (enemyLifeBarPercentWidth < 0) setTimeout(function(){
+	    if (enemyLifeBarPercentWidth <= 0) {
+            combatLog.innerHTML += "<p class='svenCombatInfo'>Sven is defeated!</p>"
+
+
+            setTimeout(function(){
 	        var audioElId = victoryIds[0] // This will only cycle through starting on the 1st index.
 	        var audioEl = document.querySelector(audioElId)
 	        lifeContainer[0].style.display = 'none'
             lifeContainer[1].style.display = 'none'
 	        gameOver1.style.display = 'block'
-	        return audioEl.play()
+	        audioEl.play()
 	    },2000)
+            return
+    }
 // }
-    audioEl.play()
 })
 
 $(winButton).on('click', function() {
